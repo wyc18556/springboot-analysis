@@ -1,6 +1,6 @@
 package spring.study.startup.initializers;
 
-import org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext;
+import org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext;
 import org.springframework.context.ApplicationContextInitializer;
 import org.springframework.context.ConfigurableApplicationContext;
 import spring.study.startup.bean.SimpleBean;
@@ -11,8 +11,8 @@ import spring.study.startup.bean.SimpleBean;
 public class SimpleApplicationContextInitializer implements ApplicationContextInitializer<ConfigurableApplicationContext> {
     @Override
     public void initialize(ConfigurableApplicationContext applicationContext) {
-        if(applicationContext instanceof AnnotationConfigEmbeddedWebApplicationContext) {
-            ((AnnotationConfigEmbeddedWebApplicationContext)applicationContext).getBeanFactory().registerSingleton("testBean", new SimpleBean("id-001", "created by initializer"));
+        if(applicationContext instanceof AnnotationConfigServletWebServerApplicationContext) {
+            ((AnnotationConfigServletWebServerApplicationContext)applicationContext).getBeanFactory().registerSingleton("testBean", new SimpleBean("id-001", "created by initializer"));
         }
     }
 }
