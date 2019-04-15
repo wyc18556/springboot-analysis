@@ -2,6 +2,7 @@ package spring.study.startup.listeners;
 
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
+import org.springframework.boot.context.event.ApplicationStartingEvent;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
 
@@ -15,6 +16,8 @@ public class SimpleApplicationListener implements ApplicationListener<Applicatio
             System.out.println("===== custom started event in initializer");
         } else if(event instanceof ApplicationReadyEvent) {
             System.out.println("===== custom ready event in initializer");
+        } else if (event instanceof ApplicationStartingEvent){
+            System.out.println("===== custom starting event in initializer");
         }
     }
 }

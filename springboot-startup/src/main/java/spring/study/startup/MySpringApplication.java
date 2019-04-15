@@ -2,7 +2,7 @@ package spring.study.startup;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import spring.study.startup.bean.SimpleBean;
 
 /**
@@ -11,7 +11,7 @@ import spring.study.startup.bean.SimpleBean;
 @SpringBootApplication
 public class MySpringApplication {
     public static void main(String[] args) {
-        ApplicationContext applicationContext = SpringApplication.run(MySpringApplication.class, args);
+        ConfigurableApplicationContext applicationContext = SpringApplication.run(MySpringApplication.class, args);
         SimpleBean sb = applicationContext.getBean("testBean", SimpleBean.class);
         System.out.println("id: " + sb.getId() + ", name: " + sb.getName());
     }
